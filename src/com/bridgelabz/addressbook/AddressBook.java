@@ -51,6 +51,7 @@ public class AddressBook {
             {
                 contact.editContact();
                 flag=true;
+                System.out.println("contact with name "+fName+ " edited in address book");
                 System.out.println(contactList);
                 break;
             }
@@ -65,11 +66,12 @@ public class AddressBook {
     {
         System.out.println("Enter first name of contact which you want to delete");
         String fName=sc.next();
-        for (Contact contact:contactList)
+        for (Contact c:contactList)
         {
-            if(fName.equals(contact.getFirstName()))
+            if(fName.equals(c.getFirstName()))
             {
-                contactList.remove(contact);
+                contactList.remove(c);
+                System.out.println("contact with name "+fName+ " deleted from address book");
                 System.out.println(contactList);
             }
 
