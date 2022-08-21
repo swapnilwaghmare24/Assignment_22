@@ -1,35 +1,64 @@
 package com.bridgelabz.addressbook;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
+    List<Contact> contactList = new LinkedList<>();
+
     Scanner sc = new Scanner(System.in);
+
     public void addContact() {
-        Contact contact=new Contact();
+        Contact contact = new Contact();
         System.out.println("Enter first name");
-        String firstName=sc.next();
+        String firstName = sc.next();
         contact.setFirstName(firstName);
         System.out.println("Enter last name");
-        String lastName=sc.next();
+        String lastName = sc.next();
         contact.setLastName(lastName);
         System.out.println("Enter address");
-        String address=sc.next();
+        String address = sc.next();
         contact.setAddress(address);
         System.out.println("Enter your city");
-        String city=sc.next();
+        String city = sc.next();
         contact.setCity(city);
         System.out.println("Enter your state");
-        String state=sc.next();
+        String state = sc.next();
         contact.setState(state);
         System.out.println("Enter zip");
-        String zip=sc.next();
+        String zip = sc.next();
         contact.setZip(zip);
         System.out.println("Enter phone number");
-        String phone=sc.next();
+        String phone = sc.next();
         contact.setPhone(phone);
         System.out.println("Enter email");
-        String email=sc.next();
+        String email = sc.next();
         contact.setEmail(email);
-        System.out.println(contact);
+        contactList.add(contact);
+        System.out.println(contactList);
+    }
+
+    public void editContacts()
+    {
+        boolean flag=false;
+        String fName;
+        System.out.println("Enter first name of contact to edit");
+        fName = sc.next();
+        for (Contact contact : contactList)
+        {
+            if (fName.equals(contact.getFirstName()))
+            {
+                contact.editContact();
+                flag=true;
+                System.out.println(contactList);
+                break;
+            }
+        }
+        if(flag==false)
+        {
+            System.out.println("contact not found");
+        }
     }
 }
+

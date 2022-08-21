@@ -1,6 +1,9 @@
 package com.bridgelabz.addressbook;
 
+import java.util.Scanner;
+
 public class Contact {
+    Scanner sc = new Scanner(System.in);
     String firstName,lastName,address,city,state,zip,phone,email;
 
     public String getFirstName() {
@@ -79,5 +82,33 @@ public class Contact {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public void editContact()
+    {
+        System.out.println("Enter first name");
+        String firstName=sc.next();
+        setFirstName(firstName);
+        System.out.println("Enter last name");
+        String lastName=sc.next();
+        setLastName(lastName);
+        System.out.println("Enter address");
+        String address=sc.next();
+        setAddress(address);
+        System.out.println("Enter your city");
+        String city=sc.next();
+        setCity(city);
+        System.out.println("Enter your state");
+        String state=sc.next();
+        setState(state);
+        System.out.println("Enter zip");
+        String zip=sc.next();
+        setZip(zip);
+        System.out.println("Enter phone number");
+        String phone=sc.next();
+        setPhone(phone);
+        System.out.println("Enter email");
+        String email=sc.next();
+        setEmail(email);
     }
 }
