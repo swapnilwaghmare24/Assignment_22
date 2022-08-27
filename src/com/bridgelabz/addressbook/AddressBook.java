@@ -77,5 +77,12 @@ public class AddressBook {
 
         }
     }
+
+    public void displayContact()
+    {
+        for (Contact c:contactList) {
+            System.out.println(c);
+        }
+    }
 }
 
