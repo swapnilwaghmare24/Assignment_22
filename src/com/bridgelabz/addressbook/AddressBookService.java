@@ -113,4 +113,32 @@ public class AddressBookService {
         });
 
     }
+    public void countByContacts(){
+        System.out.print(" Enter to count by city or state(city/state): ");
+        String countChoice = sc.next();
+
+        System.out.print(" Enter the location: ");
+        String countLocation = sc.next();
+
+        countContact(countLocation, countChoice);
+    }
+    public void countContact(String location, String choice) {
+
+        int finalCount = 0;
+
+        for (AddressBook addBook : addressBookMap.values()) {
+
+            finalCount += addBook.contactList.stream()
+                    .filter(contact -> {
+                        if (choice.equalsIgnoreCase("city"))
+                            return contact.getCity().equalsIgnoreCase(location);
+                        else
+                            return contact.getState().equalsIgnoreCase(location);
+                    })
+                    .count();
+        }
+
+        System.out.println(" Total count: " + finalCount);
+    }
+
 }

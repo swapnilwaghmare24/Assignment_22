@@ -14,7 +14,7 @@ public class AddressBookMain {
         boolean again=true;
         while(again) {
             System.out.println("enter 1-add contact 2-edit contact 3-delete contact 4-Add Address Book " +
-                    "5-Display contact 6-view by city or state");
+                    "5-Display contact 6-view by city or state 7-count contact person by city or state");
             char choice = sc.next().charAt(0);
             switch (choice) {
                 case '1':
@@ -34,6 +34,10 @@ public class AddressBookMain {
                     break;
                 case '6':
                     addressBookService.viewByCityOrState();
+                    break;
+
+                case '7':
+                    addressBookService.countByContacts();
                     break;
 
                 default:
