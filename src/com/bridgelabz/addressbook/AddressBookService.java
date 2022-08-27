@@ -33,6 +33,7 @@ public class AddressBookService {
 
     public void addContact()
     {
+        Contact c= new Contact();
         System.out.println("Enter address book name in which you want to add contact");
         String adName=sc.next();
         AddressBook adBook=findAddressBook(adName);
@@ -42,8 +43,17 @@ public class AddressBookService {
             System.out.println("invalid address book");
             return;
         }
-        adBook.addContact();
+
+        if (adBook.duplicateContact()==false)
+        {
+            System.out.println("contact already present");
+        }
+        else
+        {
+            adBook.addContact();
+        }
     }
+
 
     public void displayContact()
     {

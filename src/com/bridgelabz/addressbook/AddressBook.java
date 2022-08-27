@@ -39,50 +39,60 @@ public class AddressBook {
         System.out.println(contactList);
     }
 
-    public void editContacts()
-    {
-        boolean flag=false;
+    public void editContacts() {
+        boolean flag = false;
         String fName;
         System.out.println("Enter first name of contact to edit");
         fName = sc.next();
-        for (Contact contact : contactList)
-        {
-            if (fName.equals(contact.getFirstName()))
-            {
+        for (Contact contact : contactList) {
+            if (fName.equals(contact.getFirstName())) {
                 contact.editContact();
-                flag=true;
-                System.out.println("contact with name "+fName+ " edited in address book");
+                flag = true;
+                System.out.println("contact with name " + fName + " edited in address book");
                 System.out.println(contactList);
                 break;
             }
         }
-        if(flag==false)
-        {
+        if (flag == false) {
             System.out.println("contact not found");
         }
     }
 
-    public void deleteContact()
-    {
+    public void deleteContact() {
         System.out.println("Enter first name of contact which you want to delete");
-        String fName=sc.next();
-        for (Contact c:contactList)
-        {
-            if(fName.equals(c.getFirstName()))
-            {
+        String fName = sc.next();
+        for (Contact c : contactList) {
+            if (fName.equals(c.getFirstName())) {
                 contactList.remove(c);
-                System.out.println("contact with name "+fName+ " deleted from address book");
+                System.out.println("contact with name " + fName + " deleted from address book");
                 System.out.println(contactList);
             }
 
         }
     }
 
-    public void displayContact()
+    public boolean duplicateContact()
     {
-        for (Contact c:contactList) {
-            System.out.println(c);
+        System.out.println("enter first name to check for duplicate contact");
+        String fName = sc.next();
+        for (Contact c : contactList)
+        {
+            if (fName.equalsIgnoreCase(c.getFirstName()))
+            {
+                return false;
+            }
+
         }
+        return true;
     }
+
+        public void displayContact()
+        {
+            for (Contact c : contactList)
+            {
+                System.out.println(c);
+            }
+        }
+
 }
 
