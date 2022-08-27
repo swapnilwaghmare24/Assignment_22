@@ -90,4 +90,27 @@ public class AddressBookService {
         }
         adBook.deleteContact();
     }
+
+    public void viewByCityOrState(){
+        System.out.print(" Enter to view by city or state(city/state): ");
+        String viewChoice = sc.next();
+
+        System.out.print(" Enter the location: ");
+        String viewLocation = sc.next();
+
+        viewCityState(viewLocation, viewChoice);
+    }
+    public void viewCityState(String location, String choice) {
+        addressBookMap.values().stream().forEach((adBook) -> {
+            adBook.contactList.stream().filter(contact -> {
+
+                        if (choice.equalsIgnoreCase("city"))
+                            return contact.getCity().equalsIgnoreCase(location);
+                        else
+                            return contact.getState().equalsIgnoreCase(location);
+                    })
+                    .forEach(contact -> System.out.println(contact));
+        });
+
+    }
 }

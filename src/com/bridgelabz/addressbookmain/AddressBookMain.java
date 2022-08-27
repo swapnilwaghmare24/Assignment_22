@@ -13,7 +13,8 @@ public class AddressBookMain {
         AddressBookService addressBookService=new AddressBookService();
         boolean again=true;
         while(again) {
-            System.out.println("enter 1-add contact 2-edit contact 3-delete contact 4-Add Address Book 5-Display contact");
+            System.out.println("enter 1-add contact 2-edit contact 3-delete contact 4-Add Address Book " +
+                    "5-Display contact 6-view by city or state");
             char choice = sc.next().charAt(0);
             switch (choice) {
                 case '1':
@@ -30,6 +31,9 @@ public class AddressBookMain {
                     break;
                 case '5':
                     addressBookService.displayContact();
+                    break;
+                case '6':
+                    addressBookService.viewByCityOrState();
                     break;
 
                 default:
